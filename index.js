@@ -41,9 +41,21 @@ function doneList() {
     .map(task => task.name);
 };
 
+/**
+ * タスクの削除機能
+ * @param {string} taskName
+ */
+function del(taskName) {
+  const indexFound = tasks.findIndex(task => task.name === taskName);
+  if (indexFound !== -1) {
+    tasks.splice(indexFound, 1);
+  }
+}
+
 module.exports = {
   add,
   list,
   done,
-  doneList
+  doneList,
+  del,
 };
