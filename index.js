@@ -10,4 +10,14 @@ function add(taskName) {
   tasks.push({ name: taskName, isDone: false});
 }
 
-module.exports = { add };
+/**
+ * 未完了タスクの一覧を取得する
+ * @return {arrayy}
+ */
+function list() {
+  return tasks
+    .filter(task => !task.isDone)
+    .map(task => task.name);
+}
+
+module.exports = { add, list };
