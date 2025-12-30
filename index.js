@@ -12,12 +12,38 @@ function add(taskName) {
 
 /**
  * 未完了タスクの一覧を取得する
- * @return {arrayy}
+ * @return {array}
  */
 function list() {
   return tasks
     .filter(task => !task.isDone)
     .map(task => task.name);
-}
+};
 
-module.exports = { add, list };
+/**
+ * タスクを完了にする
+ * @param {string} taskName
+ */
+function done(taskName) {
+  const indexFound = tasks.findIndex(task => task.name === taskName);
+  if (indexFound !== -1) {
+    tasks[indexFound].isDone = true;
+  };
+};
+
+/**
+ * 完了タスクの一覧を取得する
+ * @return {array}
+ */
+function doneList() {
+  return tasks
+    .filter(task => task.isDone)
+    .map(task => task.name);
+};
+
+module.exports = {
+  add,
+  list,
+  done,
+  doneList
+};
