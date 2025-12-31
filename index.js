@@ -75,7 +75,7 @@ function done(taskName) {
  * 完了タスクの一覧を取得する
  * @return {array}
  */
-function doneList() {
+function donelist() {
   return tasks
     .filter(isDone)
     .map(task => task.name);
@@ -97,7 +97,7 @@ module.exports = {
   add,
   list,
   done,
-  doneList,
+  donelist,
   del,
   isDone,
   isNotDone,
